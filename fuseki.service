@@ -1,0 +1,14 @@
+[Unit]
+Description=Fuseki
+
+[Service]
+Environment=FUSEKI_HOME=/opt/fuseki
+Environment=FUSEKI_BASE=/etc/fuseki
+Environment=JVM_ARGS=-Xmx4G
+User=fuseki
+ExecStart=/opt/fuseki/fuseki-server
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

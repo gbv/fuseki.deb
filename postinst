@@ -1,0 +1,43 @@
+#!/bin/sh
+# postinst script for fuseki
+
+set -e
+
+fuseki_directory() {
+    mkdir -p $1
+    chown fuseki:fuseki $1
+}
+
+case "$1" in
+    configure)
+        
+        # create fuseki group and user        
+        if ! getent passwd fuseki > /dev/null; then
+            adduser --system --no-create-home --home /opt/fuseki fuseki
+        fi
+        if ! getent group fuseki > /dev/null; then
+            addgroup --system fuseki
+        fi
+        if ! id -Gn fuseki | grep -qw fuseki; then
+            adduser fuseki fuseki
+        fi
+
+        chown -R fuseki:fuseki /opt/fuseki
+
+        # ensure directories exist with fuseki ownership
+        fuseki_directory /var/lib/fuseki
+        # fuseki_directory fuseki/{backups,databases,system,system_files}
+        fuseki_directory /var/log/fuseki
+        fuseki_directory /etc/fuseki
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0
