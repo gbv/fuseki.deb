@@ -26,7 +26,10 @@ case "$1" in
 
         # ensure directories exist with fuseki ownership
         fuseki_directory /var/lib/fuseki
-        # fuseki_directory fuseki/{backups,databases,system,system_files}
+        fuseki_directory /var/lib/fuseki/backups
+        fuseki_directory /var/lib/fuseki/databases
+        fuseki_directory /var/lib/fuseki/system
+        fuseki_directory /var/lib/fuseki/system_files
         fuseki_directory /var/log/fuseki
         fuseki_directory /etc/fuseki
     ;;

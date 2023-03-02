@@ -11,7 +11,7 @@ The directory layout is aligned with [Skosmos installation instructions](https:/
 
 After installation, the service must be enabled to start on boot:
 
-    sudo dpkg --install ./fuseki_4.7.0-1_all.deb
-    sudo systemctl start fuseki
+    sudo dpkg --install ./fuseki_4.6.1-1_all.deb
+    sudo systemctl enable fuseki.service
 
 Memory and other startup options can be configured in `/etc/systemd/system/fuseki.service`.

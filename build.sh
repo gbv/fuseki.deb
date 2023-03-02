@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 name=fuseki
-version=4.7.0
+version=4.6.1
 revision=1
 arch=all
 maintainer="Jakob Voß <jakob.voss@gbv.de>"
@@ -44,6 +44,7 @@ EOF
 cp postinst "$package/DEBIAN"
 cp {pre,post}rm "$package/DEBIAN"
 
+# See /opt/fuseki/fuseki.service for official example
 mkdir -p "$package/etc/systemd/system"
 cp fuseki.service "$package/etc/systemd/system"
 
