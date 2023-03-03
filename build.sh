@@ -1,8 +1,13 @@
 #!/usr/bin/bash
 
+if [[ ! "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+-[0-9]+$ ]]; then
+    echo "Expecting version argument such as 4.7.0-1"
+    exit 1
+fi
+
+IFS='-' read version revision <<< "$1"
+
 name=fuseki
-version=${1:-4.7.0}
-revision=1
 arch=all
 maintainer="Jakob Voß <jakob.voss@gbv.de>"
 depends=default-jre-headless
