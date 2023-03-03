@@ -32,6 +32,12 @@ case "$1" in
         fuseki_directory /var/lib/fuseki/system_files
         fuseki_directory /var/log/fuseki
         fuseki_directory /etc/fuseki
+    
+        # create symlinks for databases and logs within the configuration directory
+        cd /etc/fuseki
+        ln -s /var/lib/fuseki/* .
+        ln -s /var/log/fuseki logs
+        chown fuseki:fuseki *
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

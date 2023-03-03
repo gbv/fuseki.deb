@@ -5,13 +5,16 @@ This repository contains a script to generate a Debian package of Apache Jena Fu
 The directory layout is aligned with [Skosmos installation instructions](https://github.com/NatLibFi/Skosmos/wiki/InstallTutorial):
 
 - Fuseki code is in `/opt/fuseki`
-- Configuration is in `/etc/fuseki`
+- Configuration is in `/etc/fuseki` 
 - Logging (if enabled) is in `/var/log/fuseki`
 - Databases are `/var/lib/fuseki`
 
 After installation, the service must be enabled to start on boot:
 
-    sudo dpkg --install ./fuseki_4.6.1-1_all.deb
+    sudo dpkg --install ./fuseki_4.7.0-1_all.deb
     sudo systemctl enable fuseki.service
+    sudo systemctl start fuseki.service
 
 Memory and other startup options can be configured in `/etc/systemd/system/fuseki.service`.
+
+Access control can be configured in `/etc/fuseki/shiro.ini`.
