@@ -5,6 +5,7 @@ case "$1" in
     remove|deconfigure)
         rm -rf /opt/fuseki
         rm -rf /var/log/fuseki
+        rm -rf /etc/fuseki/logs
     ;;
 
     upgrade|failed-upgrade)
