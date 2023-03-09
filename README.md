@@ -35,6 +35,8 @@ To further remove configuration files:
 
 Database files in `/var/lib/fuseki` must be removed manually.
 
+You may further want to add `/opt/fuseki/bin` to your `$PATH` to facilitate use of client scripts.
+
 ## Configuration
 
 Startup options can be configured in `/etc/systemd/system/fuseki.service`. In particular this includes:
@@ -47,11 +49,23 @@ See [Fuseki documentation](https://jena.apache.org/documentation/fuseki2/fuseki-
 
 Access control can be configured in both `/etc/fuseki/config.ttl` and in `/etc/fuseki/shiro.ini`.
 
+Individual databases can be configured in `/etc/fuseki/configuration/` with one file per database.
+
+The user interface, installed at `/opt/fuseki/webapp` can be cloning, modifying and compiling it's [source code](https://github.com/apache/jena/tree/main/jena-fuseki2/jena-fuseki-ui) and then overwrite the existing web application:
+
+~~~sh
+npm run build
+sudo rm -rf /opt/fuseki/webapp
+sudo cp -r target/webapp /opt/fuseki/webapp
+sudo chown -R fuseki:fuseki /opt/fuseki/webapp
+~~~
+
 ## Usage
 
-Fuseki runs on port 3030 by default. A user interface is available at <http://localhost:3030/>.
+Fuseki runs on port 3030 by default. The server can be monitored and controlled via [Fuseki HTTP Administration Protocol](https://jena.apache.org/documentation/fuseki2/fuseki-server-protocol.html), in particular creation of databases. Data can be loaded into and retrieved from existing databases via SPARQL endpoints (Query, Update, and Graph Store Protocol). Fuseki includes two clients:
 
-There are some helper scripts in `/opt/fuseki/bin` (require ruby to be installed)
+- user interface, available at <http://localhost:3030/>
+- [client scripts](https://jena.apache.org/documentation/fuseki2/soh.html) in `/opt/fuseki/bin` (require ruby to be installed)
 
 ## See also
 
