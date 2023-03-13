@@ -81,7 +81,7 @@ java -cp /opt/fuseki/fuseki-server.jar tdb2.tdbloader --help
 
 ### Getting started
 
-Access to [Fuseki HTTP Administration Protocol] is restricted to localhost by default, so new databases can only be created locally, via user interface or from command line like this:
+Access to parts of [Fuseki HTTP Administration Protocol] is restricted to localhost by default, so new databases can only be created locally, via user interface or from command line like this:
 
 ~~~sh
 curl --data "dbName=test&dbType=tdb2" http://localhost:3030/$/datasets
