@@ -62,16 +62,32 @@ sudo chown -R fuseki:fuseki /opt/fuseki/webapp
 
 ## Usage
 
-Fuseki runs on port 3030 by default. The server can be monitored and controlled via [Fuseki HTTP Administration Protocol](https://jena.apache.org/documentation/fuseki2/fuseki-server-protocol.html), in particular creation of databases. Data can be loaded into and retrieved from existing databases via SPARQL endpoints (Query, Update, and Graph Store Protocol) and by direct access to the underlying [TBD databases](https://jena.apache.org/documentation/tdb/). Fuseki includes two clients:
+Fuseki runs on port 3030 by default. The server can be monitored and controlled via [Fuseki HTTP Administration Protocol], in particular creation of databases. Data can be loaded into and retrieved from existing databases via SPARQL endpoints (Query, Update, and Graph Store Protocol) and by direct access to the underlying [TBD databases](https://jena.apache.org/documentation/tdb/).
+
+### Clients
+
+Fuseki includes two clients:
 
 - user interface, made available at <http://localhost:3030/>
 - [client scripts](https://jena.apache.org/documentation/fuseki2/soh.html) in `/opt/fuseki/bin` (require ruby to be installed)
 
-Direct access to TDB databases is possible via [TBD command line tools](https://jena.apache.org/documentation/tdb2/tdb2_cmds.html) and recommended to import very large datasets. These commands can be executed like this:
+Direct access to existing TDB databases is further possible via [TBD command line tools](https://jena.apache.org/documentation/tdb2/tdb2_cmds.html) and recommended to import very large datasets. These commands can be executed like this:
 
 ~~~sh
 java -cp /opt/fuseki/fuseki-server.jar tdb2.tdbloader --help
 ~~~
+
+[Fuseki HTTP Administration Protocol]: https://jena.apache.org/documentation/fuseki2/fuseki-server-protocol.html
+
+### Getting started
+
+Access to [Fuseki HTTP Administration Protocol] is restricted to localhost by default, so new databases can only be created locally, via user interface or from command line like this:
+
+~~~sh
+curl --data "dbName=test&dbType=tdb2" http://localhost:3030/$/datasets
+~~~
+
+Uploading or editing data via SPARQL from/to existing databases is *not* restricted by default!
 
 ## See also
 
