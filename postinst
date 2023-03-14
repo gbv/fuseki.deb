@@ -35,8 +35,8 @@ case "$1" in
     
         # create symlinks for databases and logs within the configuration directory
         cd /etc/fuseki
-        ln -s /var/lib/fuseki/* .
-        ln -s /var/log/fuseki logs
+        ln -sfn /var/lib/fuseki/* .
+        ln -sfn /var/log/fuseki logs
         chown fuseki:fuseki *
     ;;
 
