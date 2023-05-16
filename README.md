@@ -15,7 +15,7 @@ Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in 
 
 Download package from <https://github.com/gbv/fuseki.deb/releases> and install:
 
-    sudo dpkg --install ./fuseki_4.7.0-1_all.deb && sudo apt install -f
+    sudo dpkg --install ./fuseki_4.8.0-1_all.deb && sudo apt install -f
 
 After installation, the service must be enabled to start on boot:
 
@@ -92,6 +92,10 @@ Uploading or editing data via SPARQL from/to existing databases is *not* restric
 The [Apache Jena binary release](https://jena.apache.org/download/) includes several useful [command line tools](https://jena.apache.org/documentation/tools/index.html) for processing RDF.
 
 The Debian package `libapache-jena-java` installs [Apache Jena](https://jena.apache.org/) libraries, not including Fuseki nor the command line tools.
+
+## How this package is build
+
+Script `build.sh` executed with a version number downloads Fuseki release and builds a corresponding Debian package.
 
 ## License
 
