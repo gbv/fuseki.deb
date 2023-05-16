@@ -15,7 +15,7 @@ Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in 
 
 Download package from <https://github.com/gbv/fuseki.deb/releases> and install:
 
-    sudo dpkg --install ./fuseki_4.7.0-1_all.deb
+    sudo dpkg --install ./fuseki_4.7.0-1_all.deb && sudo apt install -f
 
 After installation, the service must be enabled to start on boot:
 
@@ -25,15 +25,13 @@ The service must be restarted once to create missing configuration files in `/et
 
     sudo systemctl restart fuseki
 
-To deinstall the application:
+To deinstall the application (excluding configuration and databases):
 
     sudo dpkg --remove fuseki
 
-To further remove configuration files:
+To further remove configuration files (excluding databases):
 
     sudo dpkg --purge fuseki
-
-Database files in `/var/lib/fuseki` must be removed manually.
 
 You may further want to add `/opt/fuseki/bin` to your `$PATH` to facilitate use of client scripts.
 
