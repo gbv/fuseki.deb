@@ -93,6 +93,10 @@ The [Apache Jena binary release](https://jena.apache.org/download/) includes sev
 
 The Debian package `libapache-jena-java` installs [Apache Jena](https://jena.apache.org/) libraries, not including Fuseki nor the command line tools.
 
+## Alternatives
+
+You may want to try [Fuseki Docker](https://jena.apache.org/documentation/fuseki2/fuseki-docker.html).
+
 ## How this package is build
 
 Script `build.sh` executed with a version number downloads Fuseki release and builds a corresponding Debian package.
