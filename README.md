@@ -2,6 +2,16 @@
 
 This repository contains a script to generate a Debian package of [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) RDF Triple store with SPARQL API and user interface. This Debian package is not affiliated with the Apache project. See <https://github.com/apache/jena> for Fuseki sources.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Related works](#related-works)
+- [How this package is build](#how-this-package-is-build)
+- [License](#license)
+
 ## Overview
 
 Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in [Skosmos installation instructions](https://github.com/NatLibFi/Skosmos/wiki/InstallTutorial):
@@ -87,15 +97,13 @@ curl --data "dbName=test&dbType=tdb2" http://localhost:3030/$/datasets
 
 Uploading or editing data via SPARQL from/to existing databases is *not* restricted by default!
 
-## See also
+## Related works
+
+You may want to try [Fuseki Docker](https://jena.apache.org/documentation/fuseki2/fuseki-docker.html) instead of this Debian package.
 
 The [Apache Jena binary release](https://jena.apache.org/download/) includes several useful [command line tools](https://jena.apache.org/documentation/tools/index.html) for processing RDF.
 
 The Debian package `libapache-jena-java` installs [Apache Jena](https://jena.apache.org/) libraries, not including Fuseki nor the command line tools.
-
-## Alternatives
-
-You may want to try [Fuseki Docker](https://jena.apache.org/documentation/fuseki2/fuseki-docker.html).
 
 ## How this package is build
 
