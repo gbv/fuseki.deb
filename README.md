@@ -18,7 +18,8 @@ Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in 
 
 - Fuseki code is in `/opt/fuseki`
 - [Configuration](#configuration) is in `/etc/fuseki` 
-- Logging (if enabled) is in `/var/log/fuseki`
+- Logging goes to journalctl by default.
+  The service can be configured in `/etc/systemd/system/fuseki.service` to log to `/var/log/fuseki`.
 - Databases are `/var/lib/fuseki`
 
 ## Installation
@@ -44,6 +45,8 @@ To further remove configuration files (excluding databases):
     sudo dpkg --purge fuseki
 
 You may further want to add `/opt/fuseki/bin` to your `$PATH` to facilitate use of client scripts.
+
+The default log level is very verbose, so it should be configured in `/opt/fuseki/log4j2.properties`.
 
 ## Configuration
 
