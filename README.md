@@ -20,13 +20,13 @@ Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in 
 - [Configuration](#configuration) is in `/etc/fuseki` 
 - Logging goes to journalctl by default.
   The service can be configured in `/etc/systemd/system/fuseki.service` to log to `/var/log/fuseki`.
-- Databases are `/var/lib/fuseki`
+- Databases are in `/var/lib/fuseki`
 
 ## Installation
 
 Download package from <https://github.com/gbv/fuseki.deb/releases> and install:
 
-    sudo dpkg --install ./fuseki_4.8.0-1_all.deb && sudo apt install -f
+    sudo dpkg --install ./fuseki_4.10.0-1_all.deb && sudo apt install -f
 
 After installation, the service must be enabled to start on boot:
 
@@ -62,7 +62,7 @@ Access control can be configured in both `/etc/fuseki/config.ttl` and in `/etc/f
 
 Individual databases can be configured in `/etc/fuseki/configuration/` with one file per database.
 
-The user interface, installed at `/opt/fuseki/webapp` can be cloning, modifying and compiling it's [source code](https://github.com/apache/jena/tree/main/jena-fuseki2/jena-fuseki-ui) and then overwrite the existing web application:
+The user interface, installed at `/opt/fuseki/webapp` can best be modified by cloning, modifying and compiling it's [source code](https://github.com/apache/jena/tree/main/jena-fuseki2/jena-fuseki-ui) and then overwrite the existing web application:
 
 ~~~sh
 npm run build
@@ -102,7 +102,7 @@ Uploading or editing data via SPARQL from/to existing databases is *not* restric
 
 ## Related works
 
-You may want to try [Fuseki Docker](https://jena.apache.org/documentation/fuseki2/fuseki-docker.html) instead of this Debian package.
+You may want to try [Fuseki Docker](https://jena.apache.org/documentation/fuseki2/fuseki-docker.html) instead of this Debian package (which lacks a user interface).
 
 The [Apache Jena binary release](https://jena.apache.org/download/) includes several useful [command line tools](https://jena.apache.org/documentation/tools/index.html) for processing RDF.
 
