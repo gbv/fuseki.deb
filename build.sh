@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 if [[ ! "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+-[0-9]+$ ]]; then
-    echo "Expecting version argument such as 4.8.0-1"
+    echo "Expecting version argument such as 5.1.0-1"
     exit 1
 fi
 

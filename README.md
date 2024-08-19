@@ -26,7 +26,7 @@ Fuseki is run as dedicated system user `fuseki`. Directory layout is same as in 
 
 Download package from <https://github.com/gbv/fuseki.deb/releases> and install:
 
-    sudo dpkg --install ./fuseki_4.10.0-1_all.deb && sudo apt install -f
+    sudo dpkg --install ./fuseki_5.1.0-1_all.deb && sudo apt install -f
 
 After installation, the service must be enabled to start on boot:
 
